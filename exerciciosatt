@@ -1,0 +1,35 @@
+valorTotal :: Int -> Int -> Double
+valorTotal quantDias quilometragem
+ | quilometragem <= 100 * quantDias = 90 * fromIntegral quantDias
+ | otherwise                        = 90 * fromIntegral quantDias + (fromIntegral(quilometragem - 100) *12)
+ 
+ 
+orcamento :: String -> Int -> Bool
+orcamento genero idade
+ | genero == "Mulher" && idade > 40 = True
+ | otherwise                        = False
+ 
+
+equacao :: Double -> Double -> Double -> String
+equacao a b c 
+ | a == 0 = "Nao e equacao do segundo grau."
+ | delta == 0 = "Ha uma raiz."
+ | delta < 0 = "Nao ha raiz."
+ | otherwise = "Ha duas raizes."
+ where 
+  delta = b^2 - (4 * a * c)
+
+compra :: Double -> Int -> Int -> Double
+compra pesopao quantVinho quantLeite
+
+ | pesopao >= 1 = 4.50 * pesopao * 0.95
+ | otherwise    = 4.50 * pesopao
+
+(div quantVinho 3) * (2 * 25) + (mod quantVinho 3) * 25
+
+(div quantLeite 3) * ((2 * 5.30) + (5.30 * 0.90)) + (mod quantLeite 3) * 5.30
+
+main :: IO ()
+main = do
+  let total = compra 2 5 3
+  print total
