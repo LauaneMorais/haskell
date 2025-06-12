@@ -1,0 +1,19 @@
+compra :: Double -> Int -> Int -> Double
+compra pesopao quantVinho quantLeite = custoVinho + custoLeite + custoPao 
+  where
+    precoPao = 4.50
+    precoVinho = 25
+    precoLeite = 5.30
+
+    custoVinho = (fromIntegral (div quantVinho 3)) * (2 * precoVinho) + (fromIntegral (mod quantVinho 3)) * precoVinho
+    custoLeite = (fromIntegral (div quantLeite 3)) * ((2 * precoLeite) + (precoLeite * 0.90)) + (fromIntegral (mod quantLeite 3)) * precoLeite
+    custoPao 
+     | pesopao >= 1 = precoPao * pesopao * 0.95
+     | otherwise    = precoPao * pesopao
+     
+   
+    total = custoVinho + custoLeite + custoPao
+    
+    descontoVinho = precoVinho * quantVinho - custoVinho
+    descontoLeite = precoLeite * quantLeite - custoLeite
+    descontoPao = precoPao * pesopao - custoPao
